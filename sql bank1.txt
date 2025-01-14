@@ -1,0 +1,7 @@
+UPDATE `users` SET `salary`=(
+    (SELECT `salary` FROM `users` WHERE `ID`='AD1234567')+
+    ((SELECT `salary` FROM `users` WHERE `ID`='AD1234567')/100)*
+    (SELECT `x%` FROM `change` WHERE `TOifa`=
+     (SELECT `toifa` FROM `users` WHERE `ID`='AD1234567') )
+)
+WHERE `ID`='AD1234567' AND `ID`!=(SELECT `QR` FROM `change` WHERE `TOifa`=(SELECT `toifa` FROM `users` WHERE `ID`='AD1234567'))
